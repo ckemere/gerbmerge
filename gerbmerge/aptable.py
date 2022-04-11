@@ -26,10 +26,11 @@ import util
 # GerbMerge doesn't handle these yet...only fixed macros (no parameters) are
 # currently supported.
 Apertures = (
-   ('Rectangle', re.compile(r'^%AD(D\d+)R,([^X]+)X([^*]+)\*%$'), '%%AD%sR,%.5fX%.5f*%%\n'),
-   ('Circle',    re.compile(r'^%AD(D\d+)C,([^*]+)\*%$'),         '%%AD%sC,%.5f*%%\n'),
-   ('Oval',      re.compile(r'^%AD(D\d+)O,([^X]+)X([^*]+)\*%$'), '%%AD%sO,%.5fX%.5f*%%\n'),
+   ('Rectangle', re.compile(r'^%AD(D\d+)R,([^X]+)X([^*]+)\*%$'), '%%AD%sR,%.6fX%.6f*%%\n'),
+   ('Circle',    re.compile(r'^%AD(D\d+)C,([^*]+)\*%$'),         '%%AD%sC,%.6f*%%\n'),
+   ('Oval',      re.compile(r'^%AD(D\d+)O,([^X]+)X([^*]+)\*%$'), '%%AD%sO,%.6fX%.6f*%%\n'),
    ('Octagon',   re.compile(r'^%AD(D\d+)OC8,([^*]+)\*%$'),       '%%AD%sOC8,%.5f*%%\n'),     # Specific to Eagle
+   ('Octagon2',   re.compile(r'^%AD(D\d+)P,([^*]+)X8X([^*]+)\*%$'),       '%%AD%sP,%.6fX8X%.6f*%%\n'),     # Specific to Eagle
    ('Macro',     re.compile(r'^%AD(D\d+)([^*]+)\*%$'),           '%%AD%s%s*%%\n')
   )
 

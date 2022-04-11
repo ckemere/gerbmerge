@@ -115,6 +115,9 @@ G71*
 %FSLAX53Y53*%
 %IPPOS*%
 %LPD*%
+%AMOC8*
+5,1,8,0,0,1.08239X$1,22.5*
+%
 """)
 
 
@@ -140,6 +143,9 @@ G71*
 %FSLAX53Y53*%
 %IPPOS*%
 %LPD*%
+%AMOC8*
+5,1,8,0,0,1.08239X$1,0.0*
+%
 """)
 
 writeGerberHeader = writeGerberHeader22degrees
