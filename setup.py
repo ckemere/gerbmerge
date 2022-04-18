@@ -108,7 +108,7 @@ if do_fix_perms:
   # Shouldn't Distutils do this for us?
   print('Setting permissions on installed files...', end=' ')
   try:
-    def fixperms(arg, dirname, names):
+    def fixperms(dirname, names):
       os.chmod(dirname, 0o755)
       for name in names:
         fullname = os.path.join(dirname, name)
@@ -117,13 +117,16 @@ if do_fix_perms:
         else:
           os.chmod(fullname, 0o644)
 
-    os.path.walk(DestDir, fixperms, 1)
-    os.path.walk(os.path.join(DestLib, 'site-packages/gerbmerge'), fixperms, 1)
+    for dirpath, dirnames, filenames in os.walk(DestDir):
+      fixperms(dirpath, filenames)
+    for dirpath, dirnames, filenames in os.walk(os.path.join(DestLib, 'site-packages/gerbmerge')):
+      fixperms(dirpath, filenames)
 
     os.chmod(os.path.join(BinDir, 'gerbmerge'), 0o755)
     print('done')
-  except:
+  except Exception as e:
     print('FAILED')
+    print(str(e))
     print()
     print('*** Please verify that the installed files have correct permissions. On')
     print("*** systems without permission flags, you don't need to")
