@@ -83,7 +83,10 @@ IgnoreList = ( \
   #re.compile(r'^%MOIN\*%'),     # [andreika]: don't ignore
   re.compile(r'^%ASAXBY\*%'),
   re.compile(r'^%AD\*%'),        # GerbTool empty aperture definition
-  re.compile(r'^%LN.*\*%')       # Layer name
+  re.compile(r'^%LN.*\*%'),       # Layer name
+  
+  re.compile(r'^%TO.P.*\*%'),    # Object attributes - Kicad uses them to label pins
+  re.compile(r'^%TO.N.*\*%')    # Object attributes - Kicad uses them to label pins
   )
 
 # Patterns for Excellon interpretation
@@ -108,7 +111,7 @@ XIgnoreList = ( \
   re.compile(r'^FMAT,2$'),# KiCad work-around
   re.compile(r'^ICI,OFF$'),# EAGLE work-around "Incremental mode off" - ON would be nonsupported
   re.compile(r'^G05$'),   # Drill Mode
-  re.compile(r'^G90$')    # Absolute Mode
+  re.compile(r'^G90$'),    # Absolute Mode
   )
 
 # A Job is a single input board. It is expected to have:
